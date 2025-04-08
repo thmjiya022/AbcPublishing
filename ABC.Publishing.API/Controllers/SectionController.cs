@@ -19,8 +19,13 @@ public class SectionController : ControllerBase
     }
 
     [HttpGet]
-    public Section GetSection(string sectionName = "preface")
+    public IActionResult GetSection(string sectionName = "preface")
     {
-        return _sections[sectionName];
+        if (_sections.ContainsKey(sectionName))
+        {
+            return Ok(_sections[sectionName]);
+        }
+
+        return NotFound();
     }
 }
