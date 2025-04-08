@@ -14,11 +14,11 @@ public class SectionController : ControllerBase
 
     public SectionController()
     {
-        _jsonDeserializer =  new JsonDeserializer();
+        _jsonDeserializer = new JsonDeserializer();
         _sections = _jsonDeserializer.GetDictionary(FilePath);
     }
 
-    [HttpGet]
+    [HttpGet("{sectionName}")]
     public IActionResult GetSection(string sectionName = "preface")
     {
         if (_sections.ContainsKey(sectionName))
