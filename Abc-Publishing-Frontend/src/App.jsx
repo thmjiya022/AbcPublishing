@@ -16,6 +16,8 @@ function Section() {
 
   const sectionName = location.pathname.split("/").pop();
 
+  console.log(sectionName);
+
   const fetchSection = async () => {
     const data = await GetSection(sectionName);
     setCurrentSection(data);
@@ -23,7 +25,7 @@ function Section() {
 
   useEffect(() => {
     fetchSection();
-  }, []);
+  }, [sectionName]);
 
   function handleClick(link) {
     navigate(`/section/${link.section}`);
@@ -39,6 +41,7 @@ function Section() {
       {content?.map((paragraph) => {
         return <p>{paragraph}</p>;
       })}
+
       {links?.map((link) => {
         return <a onClick={() => handleClick(link)}>{link.text}</a>;
       })}
