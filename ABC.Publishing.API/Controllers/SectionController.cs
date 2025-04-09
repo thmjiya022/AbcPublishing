@@ -8,7 +8,7 @@ namespace ABC.Publishing.API.Controllers;
 [Route("[controller]")]
 public class SectionController : ControllerBase
 {
-    private const string FilePath = "C:\\Users\\TewahidoTefera\\source\\repos\\ABC.Publishing.API\\ABC.Publishing.API\\JsonData\\AbcData.json";
+    private const string FilePath = "JsonData/AbcData.json";
     private JsonDeserializer _jsonDeserializer;
     private readonly Dictionary<string, Section> _sections;
 
