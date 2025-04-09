@@ -2,19 +2,18 @@ import { useEffect, useState } from "react";
 import {
   Routes,
   Route,
-  useLocation,
   useNavigate,
   Navigate,
+  useParams,
 } from "react-router-dom";
 import "./App.css";
 import { GetSection } from "./services/apiService";
 
 function Section() {
   const [currentSection, setCurrentSection] = useState(null);
-  const location = useLocation();
   const navigate = useNavigate();
 
-  const sectionName = location.pathname.split("/").pop();
+  const { sectionName } = useParams();
 
   console.log(sectionName);
 
