@@ -1,8 +1,4 @@
-@ABC.Publishing.API_HostAddress = http://localhost:5233
+@ABC.Publishing.API_HostAddress = https://localhost:7065
 
-# GET {{ABC.Publishing.API_HostAddress}}/weatherforecast/
-# Accept: application/json
-
-
-GET {{ABC.Publishing.API_HostAddress}}/section/
+GET {{ABC.Publishing.API_HostAddress}}/section/preface
 Accept: application/json###
