@@ -15,6 +15,7 @@ button {
 }
 button:hover {
   border-color: #646cff;
+  animation: pulse 2s infinite ease-in-out;
 }
 button:focus,
 button:focus-visible {
@@ -27,6 +28,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
+    animation: pulse 2s infinite ease-in-out;
     color: #747bff;
   }
   button {
@@ -42,16 +44,17 @@ button:focus-visible {
   justify-content: space-between;
 }
 
-.content {
+.firstPage {
   /* border: #1a1a1a solid 1px; */
   width: calc(100% / 2 - 22px);
   display: flex;
   flex-direction: column;
   justify-content: start;
   padding: 20px;
+  flex: 1;
 }
 
-.links {
+.secondPage {
   /* border: #1a1a1a solid 1px; */
   width: calc(100% / 2 - 22px);
   display: flex;
@@ -59,14 +62,65 @@ button:focus-visible {
   align-items: center;
   padding: 20px;
 }
+
+.navigation {
+  /* border: #1a1a1a solid 1px; */
+
+  display: flex;
+
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* padding-left: 20px;
+  padding-right: 20px;*/
+}
+/* 
+.forwardLink,
+.backwardLink {
+  flex: 1;
+} */
+
+.backwardLinks {
+  gap: 10rem;
+  justify-content: left;
+  align-items: center;
+  /* padding-left: 20px; */
+}
+
+.forwardLinks {
+  gap: 10rem;
+  justify-content: right;
+  align-items: center;
+
+  /* padding-left: 20px; */
+}
+
 h1 {
   text-align: center;
   color: #1a1a1a;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p {
   text-align: justify;
   color: #1a1a1a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: #1a1a1a;
+}
+
+a:hover {
+  animation: pulse 2s infinite ease-in-out;
+  color: blueviolet;
+  transition: color 1s;
+  cursor: pointer;
 }
 
 hr {
@@ -76,4 +130,16 @@ hr {
   margin: 20px calc(100% / 2.5);
   width: calc(20%);
   justify-content: center;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    color: #1a1a1a;
+  }
+  50% {
+    transform: scale(1.1);
+    color: blueviolet;
+  }
 }

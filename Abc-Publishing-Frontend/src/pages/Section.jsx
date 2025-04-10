@@ -38,20 +38,36 @@ function Section() {
 
   return (
     <div class="page">
-      <div class="content">
+      <div class="firstPage">
         <h1>{currentSection?.title}</h1>
         <hr />
         {currentSection?.content?.map((paragraph, index) => (
           <p key={index}>{paragraph}</p>
         ))}
+        <div className="navigation">
+          <div class="backwardLink">
+            {currentSection?.navigation?.map(
+              (link, index) =>
+                link.text?.includes("Return") && (
+                  <a key={index} onClick={() => handleClick(link)}>
+                    {link.text}
+                  </a>
+                )
+            )}
+          </div>
+          <div class="forwardLinks">
+            {currentSection?.navigation?.map(
+              (link, index) =>
+                !link.text?.includes("Return") && (
+                  <a key={index} onClick={() => handleClick(link)}>
+                    {link.text}
+                  </a>
+                )
+            )}
+          </div>
+        </div>
       </div>
-      <div class="links">
-        {currentSection?.navigation?.map((link, index) => (
-          <button key={index} onClick={() => handleClick(link)}>
-            {link.text}
-          </button>
-        ))}
-      </div>
+      <div class="secondPage"></div>
     </div>
   );
 }
