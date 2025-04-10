@@ -3,6 +3,11 @@
   line-height: 1.5;
   font-weight: 400;
 
+  background-image: url("/src/assets/Book_Background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -23,7 +28,7 @@ a {
   align-items: center;
 }
 
-p{
+p {
   display: flex;
   align-items: center;
   justify-content: center;

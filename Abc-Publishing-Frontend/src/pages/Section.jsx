@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { GetSection } from "../services/apiService";
-import '../Section.css';
+import "../styles/Section.css";
 
 function Section() {
   const [currentSection, setCurrentSection] = useState(null);
@@ -38,17 +38,20 @@ function Section() {
 
   return (
     <div class="page">
-      <h1>{currentSection?.title}</h1>
-
-      {currentSection?.content?.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
-      ))}
-
-      {currentSection?.navigation?.map((link, index) => (
-        <button key={index} onClick={() => handleClick(link)}>
-          {link.text}
-        </button>
-      ))}
+      <div class="content">
+        <h1>{currentSection?.title}</h1>
+        <hr />
+        {currentSection?.content?.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+      </div>
+      <div class="links">
+        {currentSection?.navigation?.map((link, index) => (
+          <button key={index} onClick={() => handleClick(link)}>
+            {link.text}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
