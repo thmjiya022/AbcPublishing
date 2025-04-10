@@ -72,7 +72,7 @@ p {
 hr {
   border: none;
   height: 2px;
-  background-color: darkslategray;
+  background-color: grey;
   margin: 20px calc(100% / 2.5);
   width: calc(20%);
   justify-content: center;
