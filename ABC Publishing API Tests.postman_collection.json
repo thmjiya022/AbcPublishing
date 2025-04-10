@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "75fa1ebc-6145-4979-97d0-4ac03fb68d16",
+		"name": "ABC Publishing API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43074482",
+		"_collection_link": "https://gold-space-884869.postman.co/workspace/Team-Workspace~8f3f907e-eec2-48b8-80e5-0740e0c27aa6/collection/43074482-75fa1ebc-6145-4979-97d0-4ac03fb68d16?action=share&source=collection_link&creator=43074482"
+	},
+	"item": [
+		{
+			"name": "Getting Valid Section",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check for valid json response\", function(){\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.not.be.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check for all properties\", function() {\r",
+							"    const propertiesVariable = pm.collectionVariables.get(\"ExpectedProperties\")\r",
+							"    const expectedProperties = JSON.parse(propertiesVariable);\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    expectedProperties.forEach(function(property) {\r",
+							"        pm.expect(jsonData).to.have.property(property);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/section/preface",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"section",
+						"preface"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting Invalid Section",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check for 404 status code\", function() {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check for Not Found title\", function() {\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData.title).to.eql(\"Not Found\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Checking other properties are not present\", function() {\r",
+							"    const propertiesVariable = pm.collectionVariables.get(\"ExpectedProperties\")\r",
+							"    const expectedProperties = JSON.parse(propertiesVariable);\r",
+							"    const jsonData = pm.response.json();\r",
+							"\r",
+							"    expectedProperties.forEach(function(property) {\r",
+							"        if(property != \"title\"){\r",
+							"            pm.expect(jsonData).to.not.have.property(property);\r",
+							"        }\r",
+							"    });\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/section/the-red-headed-league",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"section",
+						"the-red-headed-league"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "ExpectedProperties",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
