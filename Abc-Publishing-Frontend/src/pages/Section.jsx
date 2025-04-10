@@ -9,6 +9,8 @@ function Section() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { sectionName } = useParams();
+  const pageTurnSound = new Audio("/src/assets/Page_turn_sound.mp3");
+  pageTurnSound.playbackRate = 1.3;
 
   const fetchSection = async () => {
     try {
@@ -30,6 +32,7 @@ function Section() {
   }, [sectionName]);
 
   const handleClick = (link) => {
+    pageTurnSound.play();
     navigate(`/section/${link.section}`);
   };
 
