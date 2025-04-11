@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 1125px;
+  height: 700px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo {
@@ -33,8 +33,23 @@
   }
 }
 
+p {
+  padding-left: calc(100% / 4 - 80px);
+  color: black;
+  font-weight: bolder;
+}
+
 .card {
   padding: 2em;
+}
+
+.errorMessage {
+  position: absolute;
+  top: 50%;
+  left: calc(50% * 0 + 25%);
+  transform: translateX(-50%);
+  color: black;
+  font-size: larger;
 }
 
 .read-the-docs {

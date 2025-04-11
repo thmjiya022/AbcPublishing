@@ -37,7 +37,6 @@ button:focus-visible {
 }
 
 .page {
-  /* border: #1a1a1a solid 1px; */
   width: 1125px;
   height: 700px;
   display: flex;
@@ -45,7 +44,6 @@ button:focus-visible {
 }
 
 .firstPage {
-  /* border: #1a1a1a solid 1px; */
   width: calc(100% / 2 - 22px);
   display: flex;
   flex-direction: column;
@@ -55,7 +53,6 @@ button:focus-visible {
 }
 
 .secondPage {
-  /* border: #1a1a1a solid 1px; */
   width: calc(100% / 2 - 22px);
   display: flex;
   flex-direction: column;
@@ -68,10 +65,7 @@ button:focus-visible {
 }
 
 .navigation {
-  /* border: #1a1a1a solid 1px; */
-
   display: flex;
-
   justify-content: space-between;
   margin-top: auto;
 }
@@ -80,28 +74,26 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  /* padding-left: 20px;
-  padding-right: 20px;*/
 }
-/* 
-.forwardLink,
-.backwardLink {
-  flex: 1;
-} */
 
 .backwardLinks {
   gap: 10rem;
   justify-content: left;
   align-items: center;
-  /* padding-left: 20px; */
 }
 
 .forwardLinks {
   gap: 10rem;
   justify-content: right;
   align-items: center;
+}
 
-  /* padding-left: 20px; */
+.errorMessage {
+  position: absolute;
+  top: 50%;
+  left: calc(50% * 0 + 25%);
+  transform: translateX(-50%);
+  color: black;
 }
 
 h1 {
@@ -113,8 +105,11 @@ h1 {
 p {
   text-align: justify;
   color: #1a1a1a;
+  /* font-size: normal; */
+  font-weight: normal;
   font-family: Arial, Helvetica, sans-serif;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 0;
 }
 
 a {
@@ -130,9 +125,7 @@ a:hover {
 }
 
 hr {
-  border: none;
-  height: 2px;
-  background-color: grey;
+  border: grey solid 0.5px;
   margin: 20px calc(100% / 2.5);
   width: calc(20%);
   justify-content: center;

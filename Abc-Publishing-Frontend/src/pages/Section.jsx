@@ -16,6 +16,9 @@ function Section() {
     try {
       setLoading(true);
       const data = await GetSection(sectionName);
+      if (data?.title === "Not Found") {
+        data.content = ["It seems like this section does not exist :`("];
+      }
       if (!data) throw new Error("Section not found");
       setCurrentSection(data);
       setError(null);
@@ -36,8 +39,8 @@ function Section() {
     navigate(`/section/${link.section}`);
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
+  if (loading) return <p className="">Loading...</p>;
+  if (error) return <p className="errorMessage">{error}</p>;
 
   return (
     <div class="page">
