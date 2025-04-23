@@ -1,0 +1,144 @@
+button {
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  height: fit-content;
+  width: fit-content;
+  margin: 10px;
+}
+button:hover {
+  border-color: #646cff;
+  animation: pulse 2s infinite ease-in-out;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    animation: pulse 2s infinite ease-in-out;
+    color: #747bff;
+  }
+  button {
+    background-color: green;
+  }
+}
+
+.page {
+  width: 1125px;
+  height: 700px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.firstPage {
+  width: calc(100% / 2 - 22px);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 20px;
+  flex: 1;
+}
+
+.secondPage {
+  width: calc(100% / 2 - 22px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/src/assets/Abc_Publishing_Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding: 20px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.backwardLinks {
+  gap: 10rem;
+  justify-content: left;
+  align-items: center;
+}
+
+.forwardLinks {
+  gap: 10rem;
+  justify-content: right;
+  align-items: center;
+}
+
+.errorMessage {
+  position: absolute;
+  top: 50%;
+  left: calc(50% * 0 + 25%);
+  transform: translateX(-50%);
+  color: black;
+}
+
+h1 {
+  text-align: center;
+  color: #1a1a1a;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  text-align: justify;
+  color: #1a1a1a;
+  /* font-size: normal; */
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+a:hover {
+  animation: pulse 2s infinite ease-in-out;
+  color: blueviolet;
+  transition: color 1s;
+  cursor: pointer;
+}
+
+hr {
+  border: grey solid 0.5px;
+  margin: 20px calc(100% / 2.5);
+  width: calc(20%);
+  justify-content: center;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    color: #1a1a1a;
+  }
+  50% {
+    transform: scale(1.1);
+    color: blueviolet;
+  }
+}
