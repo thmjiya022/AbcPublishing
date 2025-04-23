@@ -1,0 +1,4 @@
+@ABC.Publishing.API_HostAddress = https://localhost:7065
+
+GET {{ABC.Publishing.API_HostAddress}}/section/preface
+Accept: application/json###
