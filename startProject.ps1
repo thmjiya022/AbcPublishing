@@ -8,16 +8,16 @@ cd $backendPath
 dotnet restore
 if ($LASTEXITCODE -ne 0) {
      Write-Host "Restore failed"
-     exit 1 
+     exit $LASTEXITCODE
 }
 
 dotnet build
 if ($LASTEXITCODE -ne 0) { 
     Write-Host "Build failed"
-    exit 1
+    exit $LASTEXITCODE
 }
 
-Start-Process powershell -ArgumentList "dotnet run" -WorkingDirectory $backendPath.Path
+Start-Process powershell ArgumentList "dotnet run" -WorkingDirectory $backendPath.Path
 Write-Host "Backend running in new terminal tab"
 
 cd ".."
@@ -28,7 +28,7 @@ cd $frontendPath
 npm install
 if ($LASTEXITCODE -ne 0) { 
     Write-Host "npm install failed"
-    exit 1
+    exit $LASTEXITCODE
 }
 
 Start-Process powershell -ArgumentList "npm run dev" -WorkingDirectory $frontendPath.Path
@@ -45,7 +45,7 @@ if (-Not (Test-Path ".\node_modules")) {
     npm install
     if ($LASTEXITCODE -ne 0) {
         Write-Host "npm install failed. Cannot proceed with Cypress tests."
-        exit 1
+        exit $LASTEXITCODE
     }
 }
 
