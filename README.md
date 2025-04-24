@@ -67,4 +67,3 @@ npx cypress run
 ```
 
 Tests are located in the cypress/e2e/ folder.
-
